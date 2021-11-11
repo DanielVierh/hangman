@@ -21,6 +21,7 @@ const wordList = ["Bimbam","Hüftgold","Kaulquappe","Trantüte","Muffensausen","
 let word = '';
 let wordLength = 0;
 let guessedChars = [];
+let wrongCharCounter = 0;
 const winnerLoserLabel = document.getElementById("winnerLoserLabel");
 const continueButton = document.getElementById("contBtn");
 
@@ -36,7 +37,7 @@ function goToMenue() {
 function initNewGame() {
         winnerLoserLabel.hidden = true;
         continueButton.hidden = true;
-        document.getElementById("imgHangm").src = "Assets/10.jpg";
+        document.getElementById("imgHangm").src = "Assets/0.jpg";
         createNewWord(); 
 }
 
@@ -95,6 +96,12 @@ function checkChar(char, clickedButton) {
         clickedButton.style.background = 'rgb(117, 2, 2)';
         clickedButton.style.color = 'white';
         clickedButton.disabled = true;
+        wrongCharCounter += 1;
+        document.getElementById("imgHangm").src = `Assets/${wrongCharCounter}.jpg`;
+        if(wrongCharCounter === 10) {
+            winnerLoser('red', `Gesucht wurde:<br> ${word}`)
+        }
+    
     }else{
         clickedButton.style.background = 'green';
         clickedButton.style.color = 'white';
@@ -122,16 +129,36 @@ function winnerLoser(color, labelTxt) {
     winnerLoserLabel.style.color = color;
     winnerLoserLabel.innerHTML = labelTxt;
     continueButton.hidden = false;
+    blockAndUnblockAllKeysFromBoardgame(true);
 }
-
-// function gameOver() {
-//     winnerLoserLabel.hidden = false;
-//     winnerLoserLabel.style.color = 'red';
-//     winnerLoserLabel.innerHTML = 'Verloren 😮'
-// }
 
 function nextWord() {
     winnerLoserLabel.hidden = true;
     continueButton.hidden = true;
+    blockAndUnblockAllKeysFromBoardgame(false);
+    guessedChars = [];
+    wrongCharCounter = 0;
+    document.getElementById("imgHangm").src = "Assets/0.jpg";
+    createNewWord();
+}
+
+/**
+ * Massenweises Disablen und weiß färben
+ * true = disablen
+ * false = enablen und Farbe auf Weiß setzen
+ */
+function blockAndUnblockAllKeysFromBoardgame(trueFalse) {
+    if(trueFalse === true) {
+        for(let key = 0; key <= 25; key++) {
+            document.getElementById(`btn_${key}`).disabled = trueFalse;
+        }
+    }else{
+        for(let key = 0; key <= 25; key++) {
+            document.getElementById(`btn_${key}`).disabled = trueFalse;
+            document.getElementById(`btn_${key}`).style.background = 'white';
+            document.getElementById(`btn_${key}`).style.color = 'black';
+        }
+    }
+
 }
 

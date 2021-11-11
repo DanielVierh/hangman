@@ -121,8 +121,8 @@ body{
     left: -5%;
     width: 100%;
     z-index: 2;
-    transform: rotate(-20deg);
-    font-size: 3rem;
+    transform: rotate(-10deg);
+    font-size: 1.3rem;
     background: rgba(0, 0, 0, 0.418);
     color: lightgreen;
     font-weight: bold;
