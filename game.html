@@ -17,7 +17,7 @@
     <div class="mainContainer">
         <div class="menueBar">
             <button class="smallButton" onclick="goToMenue()">Zurück</button>
-            <p class="creditLabel">150 Credits</p>
+            <p class="creditLabel" id="outpCredits"></p>
         </div>
         <div class="picturebox">
             <img class="imgHangman" src="Assets/10.jpg" alt="img" id="imgHangm">
@@ -45,7 +45,7 @@
             <p class="labelChar" id="outpRightChar19">Z</p>
         </div>
         <div class="buttonSection">
-            <button class="actionButton" onclick="createNewWord()">Joker</button>
+            <button class="jokerButton" onclick="takeJoker()" id="btnJoker">Joker</button>
         </div>
         <p id="winnerLoserLabel"><span id="solution"></span></p>
         <div class="keyboard">

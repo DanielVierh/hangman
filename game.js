@@ -22,13 +22,12 @@ let word = '';
 let wordLength = 0;
 let guessedChars = [];
 let wrongCharCounter = 0;
+let credits = 150;
 const winnerLoserLabel = document.getElementById("winnerLoserLabel");
 const continueButton = document.getElementById("contBtn");
 
 
-
 window.onload = initNewGame();
-
 
 function goToMenue() {
     window.location = "index.html";
@@ -39,8 +38,8 @@ function initNewGame() {
         continueButton.hidden = true;
         document.getElementById("imgHangm").src = "Assets/0.jpg";
         createNewWord(); 
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
 }
-
 
 function createNewWord() {
     const rndNumb = parseInt(Math.random() * countWordList());
@@ -72,7 +71,6 @@ function logButton(clicked_ID) {
     const chr = btn.innerText;
     checkChar(chr, btn);
 }
-
 
 /**
  * Überprüft, ob der angeklickte Buchstabe vorhanden ist. 
@@ -114,7 +112,6 @@ function checkChar(char, clickedButton) {
         checkCompleteness();
     }
 }
-
 
 function checkCompleteness() {
     console.log(guessedChars)
@@ -158,6 +155,27 @@ function blockAndUnblockAllKeysFromBoardgame(trueFalse) {
             document.getElementById(`btn_${key}`).style.background = 'white';
             document.getElementById(`btn_${key}`).style.color = 'black';
         }
+    }
+
+}
+
+function takeJoker() {
+    // Prüft, ob genug Credits vorh sind 1x benutzen kostet 50 Credits
+    if(credits >= 50) {
+        // Bucht Credits ab
+        credits -= 50;
+        // Schleife, solange bis erfüllt
+        let foundValidChar = false;
+
+            // Nimmt sich zuerst einen Buchstaben aus dem Wort
+            
+            // Prüft dann, ob dieser bereits aufgedeckt wurde
+
+            // Wenn nicht vorh, Index merken und ergänzen und aufdecken
+
+        // Aktualisiere Credits und zeige diese an
+
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
     }
 
 }
