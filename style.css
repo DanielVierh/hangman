@@ -27,6 +27,14 @@ body{
 
 }
 
+.picturebox{
+    display: flex;
+    justify-content: center;
+    height: 100%;
+    width: 80%;
+    justify-self: center;
+}
+
 .imgHangman{
     height: 70%;
     width: 70%;
@@ -49,6 +57,10 @@ body{
     border-radius: 5px;
     text-align: center;
     font-weight: bold;
+}
+
+.wrongChar{
+    background: rgb(117, 2, 2);
 }
 
 .charfield{
@@ -100,5 +112,39 @@ body{
     place-content: center;
     background: chartreuse;
     color: gray;
+    font-weight: bold;
+}
+
+#winnerLoserLabel{
+    position: fixed; /* Stay fixed */
+    top: 40%;
+    left: -5%;
+    width: 100%;
+    z-index: 2;
+    transform: rotate(-20deg);
+    font-size: 3rem;
+    background: rgba(0, 0, 0, 0.418);
+    color: lightgreen;
+    font-weight: bold;
+    border-radius: 10px;
+    backdrop-filter: blur(15px);
+    --webkit-backdrop-filter: blur(15px);
+    --moz-backdrop-filter: blur(15px);
+    box-shadow: 15px 15px 20px black;
+    border: 3px solid black;
+    padding: 1rem;
+}
+
+#contBtn{
+    z-index: 10;
+    position: fixed; /* Stay fixed */
+    top: 80%;
+    left: 35%;
+    min-width: 30%;
+    height: 10%;
+    box-shadow: 15px 15px 10px black;
+    background: chartreuse;
+    border-radius: 10px;
+    font-size: 1.5rem;
     font-weight: bold;
 }
