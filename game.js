@@ -34,6 +34,7 @@ function goToMenue() {
 }
 
 function initNewGame() {
+        loadCredits(); 
         winnerLoserLabel.hidden = true;
         continueButton.hidden = true;
         document.getElementById("imgHangm").src = "Assets/0.jpg";
@@ -117,6 +118,9 @@ function checkCompleteness() {
     console.log(guessedChars)
     const lengthOfGuessedChars = guessedChars.length;
     if(lengthOfGuessedChars === wordLength) {
+        credits += 50;
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        saveCredits();
         winnerLoser('lightgreen', 'Gewonnen 😀');
     }
 }
@@ -164,6 +168,7 @@ function takeJoker() {
     if(credits >= 50) {
         // Bucht Credits ab
         credits -= 50;
+        saveCredits();
         // Schleife, solange bis erfüllt
         let foundValidChar = false;
 
@@ -179,4 +184,16 @@ function takeJoker() {
     }
 
 }
+
+function saveCredits() {
+    localStorage.setItem('storedCredit', JSON.stringify(credits));
+}
+
+function loadCredits() {
+    if(localStorage.getItem('storedCredit') != null) {
+        credits = JSON.parse(localStorage.getItem('storedCredit'));
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+    }
+}
+
 
