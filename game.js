@@ -24,8 +24,11 @@ let guessedChars = [];
 let usedChars = [];
 let wrongCharCounter = 0;
 let credits = 150;
+
 const winnerLoserLabel = document.getElementById("winnerLoserLabel");
 const continueButton = document.getElementById("contBtn");
+const creditLabel = document.getElementById("outpCredits");
+const hangman = document.getElementById("imgHangm");
 
 // Start hier
 window.onload = initNewGame();
@@ -38,9 +41,9 @@ function initNewGame() {
         loadCredits(); 
         winnerLoserLabel.hidden = true;
         continueButton.hidden = true;
-        document.getElementById("imgHangm").src = "Assets/0.jpg";
+        hangman.src = "Assets/0.jpg";
         createNewWord(); 
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        creditLabel.innerHTML = `${credits} Credits`;
 }
 
 function createNewWord() {
@@ -99,7 +102,7 @@ function checkChar(char, clickedButton) {
         clickedButton.style.color = 'white';
         clickedButton.disabled = true;
         wrongCharCounter += 1;
-        document.getElementById("imgHangm").src = `Assets/${wrongCharCounter}.jpg`;
+        hangman.src = `Assets/${wrongCharCounter}.jpg`;
         if(wrongCharCounter === 10) {
             winnerLoser('red', `Gesucht wurde:<br> ${word}`)
         }
@@ -126,7 +129,7 @@ function checkCheat() {
         credits += 1000;
         saveCredits();
         alert("Cheat: 1000 Credits freigeschaltet");
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        creditLabel.innerHTML = `${credits} Credits`;
     }
 }
 
@@ -136,8 +139,8 @@ function checkCompleteness() {
     const lengthOfGuessedChars = guessedChars.length;
     if(lengthOfGuessedChars === wordLength) {
         credits += 50;
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
-        document.getElementById("outpCredits").style.color = 'yellow';
+        creditLabel.innerHTML = `${credits} Credits`;
+        creditLabel.style.color = 'yellow';
         saveCredits();
         winnerLoser('lightgreen', 'Gewonnen 😀 +50💲');
     }
@@ -158,7 +161,7 @@ function nextWord() {
     guessedChars = [];
     usedChars = [];
     wrongCharCounter = 0;
-    document.getElementById("imgHangm").src = "Assets/0.jpg";
+    hangman.src = "Assets/0.jpg";
     createNewWord();
 }
 
@@ -190,7 +193,7 @@ function takeJoker() {
         credits -= 50;
         saveCredits();
         // Aktualisiere Credits anzeigen
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        creditLabel.innerHTML = `${credits} Credits`;
         let notUsedChar = '';
         // Nimmt sich zuerst einen Buchstaben aus dem Wort
         for(let i = 0; i < word.length; i++) {
@@ -209,7 +212,7 @@ function takeJoker() {
                 }
         }    
     }else{
-        document.getElementById("outpCredits").style.color = 'red';
+        creditLabel.style.color = 'red';
     }
 }
 
@@ -220,7 +223,7 @@ function saveCredits() {
 function loadCredits() {
     if(localStorage.getItem('storedCredit') != null) {
         credits = JSON.parse(localStorage.getItem('storedCredit'));
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        creditLabel.innerHTML = `${credits} Credits`;
     }
 }
 
