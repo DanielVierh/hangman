@@ -90,8 +90,8 @@ body{
 
 .smallButton{
     font-size: 0.7rem;
-    background: blue;
-    color: yellow;
+    background: rgba(12, 123, 214, 0.445);
+    color: white;
     border-radius: 6px;
 }
 

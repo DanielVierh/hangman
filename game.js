@@ -26,7 +26,7 @@ let credits = 150;
 const winnerLoserLabel = document.getElementById("winnerLoserLabel");
 const continueButton = document.getElementById("contBtn");
 
-
+// Start hier
 window.onload = initNewGame();
 
 function goToMenue() {
@@ -120,6 +120,7 @@ function checkCompleteness() {
     if(lengthOfGuessedChars === wordLength) {
         credits += 50;
         document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        document.getElementById("outpCredits").style.color = 'yellow';
         saveCredits();
         winnerLoser('lightgreen', 'Gewonnen 😀');
     }
@@ -160,38 +161,38 @@ function blockAndUnblockAllKeysFromBoardgame(trueFalse) {
             document.getElementById(`btn_${key}`).style.color = 'white';
         }
     }
-
+    document.getElementById("btnJoker").disabled = trueFalse;
 }
+
 
 function takeJoker() {
     // Prüft, ob genug Credits vorh sind 1x benutzen kostet 50 Credits
-    console.log("Bin in Take Joker");
-    if(credits >= -1) {
+    if(credits >= 50) {
         // Bucht Credits ab
-        // credits -= 50;
-        // saveCredits();
-        // Schleife, solange bis erfüllt
-        let foundValidChar = false;
-
+        credits -= 50;
+        saveCredits();
+        // Aktualisiere Credits anzeigen
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+        let notUsedChar = '';
         // Nimmt sich zuerst einen Buchstaben aus dem Wort
         for(let i = 0; i < word.length; i++) {
             // Prüft dann, ob dieser bereits aufgedeckt wurde
-            for(let j = 0; j < guessedChars.length; j++) {
-                if(word[i] === guessedChars[j]) {
-                    console.log(`Gefunden ${word[i]}`);
-                    foundValidChar = false;
+                if(guessedChars.includes(word[i])) {
+                }else{
+                    notUsedChar = word[i];
+                    // Wenn nicht vorh, Index merken und ergänzen und aufdecken
+                    for (let i = 0; i <= 25; i++) {
+                        const charButton = document.getElementById(`btn_${i}`);
+                        if (charButton.innerText === notUsedChar) {
+                            checkChar(notUsedChar, charButton);
+                            return;
+                        }
+                    }
                 }
-            }
         }    
-            
-
-            // Wenn nicht vorh, Index merken und ergänzen und aufdecken
-
-        // Aktualisiere Credits und zeige diese an
-
-        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+    }else{
+        document.getElementById("outpCredits").style.color = 'red';
     }
-
 }
 
 function saveCredits() {
