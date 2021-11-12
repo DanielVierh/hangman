@@ -16,7 +16,7 @@ const wordList = ["Bimbam","Hueftgold","Kaulquappe","Trantuete","Muffensausen","
 "Schluss","Schmalz","schmelzen","seid","seit","Silvester","skurril","Smiley","soweit","Status","Tiger","Tipp","tolerant","Turnier","unendlich","vielleicht","Verzeichnis","willkommen",
 "ziemlich","Ende","viel","Zucchini","zugunsten","zugutekommen","Zuhause","zumindest","zurecht","zurzeit","zuwider","Buch","Tisch","Urlaub","Zimmerpflanze","Heizung","Lautsprecher",
 "Brot","Tasche","Fenster","Lampe","Kaugummi","Verpackung","Verbessern","Verbesserung","Wahrnehmung","wahrnehmen","wahrzeichen"];
-
+        
 
 let word = '';
 let wordLength = 0;
