@@ -156,8 +156,8 @@ function blockAndUnblockAllKeysFromBoardgame(trueFalse) {
     }else{
         for(let key = 0; key <= 25; key++) {
             document.getElementById(`btn_${key}`).disabled = trueFalse;
-            document.getElementById(`btn_${key}`).style.background = 'white';
-            document.getElementById(`btn_${key}`).style.color = 'black';
+            document.getElementById(`btn_${key}`).style.background = 'rgba(6, 114, 156, 0.795)';
+            document.getElementById(`btn_${key}`).style.color = 'white';
         }
     }
 
