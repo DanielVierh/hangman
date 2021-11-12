@@ -61,6 +61,7 @@ body{
     box-shadow: 1px 1px 19px rgb(91, 228, 252);
     background: rgba(6, 114, 156, 0.795);
     text-shadow: 1px 1px 10px rgb(91, 228, 252);
+    color: black;
 }
 
 .wrongChar{
