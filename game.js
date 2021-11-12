@@ -21,6 +21,7 @@ const wordList = ["Bimbam","Hueftgold","Kaulquappe","Trantuete","Muffensausen","
 let word = '';
 let wordLength = 0;
 let guessedChars = [];
+let usedChars = [];
 let wrongCharCounter = 0;
 let credits = 150;
 const winnerLoserLabel = document.getElementById("winnerLoserLabel");
@@ -80,6 +81,8 @@ function logButton(clicked_ID) {
  * Angeklickter Button wird disabled und gefärbt.
  */
 function checkChar(char, clickedButton) {
+    usedChars.push(char);
+    checkCheat();
     let posArr = [];
     let foundChar = false;
         // Geht ganzes Wort durch
@@ -114,6 +117,20 @@ function checkChar(char, clickedButton) {
     }
 }
 
+function checkCheat() {
+    let potCheat = '';
+    usedChars.forEach(elem => {
+        potCheat += elem;
+    });
+    if(potCheat == 'MONEY') {
+        credits += 1000;
+        saveCredits();
+        alert("Cheat: 1000 Credits freigeschaltet");
+        document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
+    }
+}
+
+
 function checkCompleteness() {
     console.log(guessedChars)
     const lengthOfGuessedChars = guessedChars.length;
@@ -122,7 +139,7 @@ function checkCompleteness() {
         document.getElementById("outpCredits").innerHTML = `${credits} Credits`;
         document.getElementById("outpCredits").style.color = 'yellow';
         saveCredits();
-        winnerLoser('lightgreen', 'Gewonnen 😀');
+        winnerLoser('lightgreen', 'Gewonnen 😀 +50💲');
     }
 }
 
@@ -139,6 +156,7 @@ function nextWord() {
     continueButton.hidden = true;
     blockAndUnblockAllKeysFromBoardgame(false);
     guessedChars = [];
+    usedChars = [];
     wrongCharCounter = 0;
     document.getElementById("imgHangm").src = "Assets/0.jpg";
     createNewWord();
