@@ -12,78 +12,72 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Hangman</title>
     <link rel="stylesheet" href="lib/css/style.css">
-    <script src="lib/js/jquery.min.js"></script>
-    <script src="lib/js/jquery.mobile-1.4.5.min.js"></script>
-    <!-- <script src="lib/js/game.js"></script> -->
 </head>
 <body>
-    <div class="mainContainer">
-        <div class="menueBar">
-            <button class="smallButton" onclick="goToMenue()">Zurück</button>
-            <p class="creditLabel" id="outpCredits"></p>
-        </div>
-        <div class="picturebox">
-            <img class="imgHangman" src="Assets/0.jpg" alt="img" id="imgHangm">
-        </div>
-        <div class="charfield">
-            <p class="labelChar" id="outpRightChar0" >A</p>
-            <p class="labelChar" id="outpRightChar1">W</p>
-            <p class="labelChar" id="outpRightChar2">W</p>
-            <p class="labelChar" id="outpRightChar3">C</p>
-            <p class="labelChar" id="outpRightChar4">W</p>
-            <p class="labelChar" id="outpRightChar5">W</p>
-            <p class="labelChar" id="outpRightChar6">W</p>
-            <p class="labelChar" id="outpRightChar7">W</p>
-            <p class="labelChar" id="outpRightChar8">W</p>
-            <p class="labelChar" id="outpRightChar9">Q</p>
-            <p class="labelChar" id="outpRightChar10">W</p>
-            <p class="labelChar" id="outpRightChar11">W</p>
-            <p class="labelChar" id="outpRightChar12">W</p>
-            <p class="labelChar" id="outpRightChar13">W</p>
-            <p class="labelChar" id="outpRightChar14">W</p>
-            <p class="labelChar" id="outpRightChar15">W</p>
-            <p class="labelChar" id="outpRightChar16">W</p>
-            <p class="labelChar" id="outpRightChar17">W</p>
-            <p class="labelChar" id="outpRightChar18">W</p>
-            <p class="labelChar" id="outpRightChar19">Z</p>
-        </div>
-        <div class="buttonSection">
-            <button class="jokerButton" onclick="takeJoker()" id="btnJoker">Joker</button>
-        </div>
-        <p id="winnerLoserLabel"><span id="solution"></span></p>
-        <div class="keyboard">
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_0">A</button>
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_1">B</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_2">C</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_3">D</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_4">E</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_5">F</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_6">G</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_7">H</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_8">I</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_9">J</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_10">K</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_11">L</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_12">M</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_13">N</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_14">O</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_15">P</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_16">Q</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_17">R</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_18">S</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_19">T</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_20">U</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_21">V</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_22">W</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_23">X</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_24">Y</button> 
-           <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_25">Z</button>  
-        </div>
-
-        
-
-    </div>
-    <button id="contBtn" onclick="nextWord()">Weiter</button>
+            <div class="mainContainer">
+                <div class="menueBar">
+                    <button class="smallButton" onclick="goToMenue()">Zurück</button>
+                    <p class="creditLabel" id="outpCredits"></p>
+                </div>
+                <div class="picturebox">
+                    <img class="imgHangman" src="Assets/0.jpg" alt="img" id="imgHangm">
+                </div>
+                <div class="charfield">
+                    <p class="labelChar" id="outpRightChar0" >A</p>
+                    <p class="labelChar" id="outpRightChar1">W</p>
+                    <p class="labelChar" id="outpRightChar2">W</p>
+                    <p class="labelChar" id="outpRightChar3">C</p>
+                    <p class="labelChar" id="outpRightChar4">W</p>
+                    <p class="labelChar" id="outpRightChar5">W</p>
+                    <p class="labelChar" id="outpRightChar6">W</p>
+                    <p class="labelChar" id="outpRightChar7">W</p>
+                    <p class="labelChar" id="outpRightChar8">W</p>
+                    <p class="labelChar" id="outpRightChar9">Q</p>
+                    <p class="labelChar" id="outpRightChar10">W</p>
+                    <p class="labelChar" id="outpRightChar11">W</p>
+                    <p class="labelChar" id="outpRightChar12">W</p>
+                    <p class="labelChar" id="outpRightChar13">W</p>
+                    <p class="labelChar" id="outpRightChar14">W</p>
+                    <p class="labelChar" id="outpRightChar15">W</p>
+                    <p class="labelChar" id="outpRightChar16">W</p>
+                    <p class="labelChar" id="outpRightChar17">W</p>
+                    <p class="labelChar" id="outpRightChar18">W</p>
+                    <p class="labelChar" id="outpRightChar19">Z</p>
+                </div>
+                <div class="buttonSection">
+                    <button class="jokerButton" onclick="takeJoker()" id="btnJoker">Joker</button>
+                </div>
+                <p id="winnerLoserLabel"><span id="solution"></span></p>
+                <div class="keyboard">
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_0">A</button>
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_1">B</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_2">C</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_3">D</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_4">E</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_5">F</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_6">G</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_7">H</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_8">I</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_9">J</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_10">K</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_11">L</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_12">M</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_13">N</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_14">O</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_15">P</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_16">Q</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_17">R</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_18">S</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_19">T</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_20">U</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_21">V</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_22">W</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_23">X</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_24">Y</button> 
+                <button class="btnKeyboard" onclick="logButton(this.id)" id="btn_25">Z</button>  
+                </div>
+            </div>
+            <button id="contBtn" onclick="nextWord()">Weiter</button>
     <script src="lib/js/game.js"></script>
 </body>
 </html>
